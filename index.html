@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>die</title>
+    <style>
+        #crasher{
+            width: 7rem;
+            height: 5rem;
+            color: white;
+            background-color: gray;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 1rem;
+        }
+        #c{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:100%;
+            height:35rem;
+        }
+        body{
+            background-color:rgb(20,20,20);
+        }
+    </style>
+</head>
+<body>
+    <div id = "c">
+        <button id = "crasher" onclick = "die()">press for free v-bucks</button>
+    </div>
+
+    <script>
+        var texts = [
+            "heem",
+            "boobs"
+        ]
+
+        function die(){
+            document.body.style.backgroundColor = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`
+            setInterval(() => {
+                var tl = document.createElement("p")
+                tl.innerHTML = texts[Math.floor(Math.random()*texts.length)]
+                tl.style.position = "absolute"
+                tl.style.display = "inline-block"
+                tl.style.left = `${Math.random()*1500}px`
+                tl.style.top = `${Math.random()*1000}px`
+                tl.style.color = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`
+                tl.style.zIndex = "2"
+                document.body.appendChild(tl)
+                die()
+            }, 50);
+        }
+    </script>
+</body>
+</html>
